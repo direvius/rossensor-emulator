@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home
+CMAKE_SOURCE_DIR = /home/rossensor-emulator
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home
+CMAKE_BINARY_DIR = /home/rossensor-emulator
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -122,22 +122,11 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/CMakeFiles /home/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rossensor-emulator/CMakeFiles /home/rossensor-emulator/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rossensor-emulator/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -724,7 +713,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... install/local"
-	@echo "... install/strip"
 	@echo "... velodyne_msgs_generate_messages_lisp"
 	@echo "... velodyne_msgs_generate_messages_eus"
 	@echo "... velodyne_msgs_generate_messages_cpp"

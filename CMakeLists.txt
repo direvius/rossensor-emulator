@@ -17,10 +17,11 @@ find_package(catkin REQUIRED COMPONENTS
   velodyne_msgs
 )
 
-find_package(Boost REQUIRED COMPONENTS thread system)
+find_package(Boost REQUIRED COMPONENTS thread system program_options)
 
 include_directories(/opt/ros/kinetic/include/)
 link_directories(/opt/ros/kinetic/lib/)
 
 add_executable(vlp16_emu src/main.cc)
-target_link_libraries(vlp16_emu rosbag rosbag_storage roscpp roscpp_serialization rostime cpp_common boost_system)
+target_link_libraries(
+  vlp16_emu rosbag rosbag_storage roscpp roscpp_serialization rostime cpp_common boost_system boost_program_options)
